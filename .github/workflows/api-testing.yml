@@ -15,7 +15,7 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npx eslint .
+        run: npx eslint --quiet
 
       - name: Run tests and generate report
         env:
