@@ -34,4 +34,4 @@ jobs:
         with:
           name: Test Results
           path: ./test-results.xml
-          reporter: mocha-junit-reporter
+          reporter: jest-junit
