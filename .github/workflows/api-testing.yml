@@ -27,11 +27,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Test Report
-          path: ./test-results.xml
+          path: test-results.xml
 
       - name: Publish test results
         uses: phoenix-actions/test-reporting@v8
         with:
           name: Test Results
-          path: ./test-results.xml
+          path: test-results.xml
           reporter: jest-junit
