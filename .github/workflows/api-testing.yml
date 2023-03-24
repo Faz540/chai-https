@@ -28,15 +28,3 @@ jobs:
         with:
           name: Test Report
           path: ./test-results.xml
-
-      - name: Display JUnit Report
-        uses: phoenix-actions/test-reporting@v8
-        id: junit-reports
-        with:
-          name: WebdriverIO Junit Reports
-          path: ./test-results.xml
-          reporter: jest-junit
-          list-suites: all
-          list-tests: all
-          max-annotations: 10
-          fail-on-error: false
