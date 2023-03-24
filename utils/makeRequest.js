@@ -1,13 +1,15 @@
+require("dotenv").config();
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const expect = chai.expect;
-
 chai.use(chaiHttp);
 
-async function makeRequest(url, method = "get", body = null) {
+// Accepts a URL, HTTP Method (Get by default) and a request body (empty be default)
+// Also contains error handling if the request fails
+async function makeRequest(endpoint, method = "get", body = null) {
+	const url = `${process.env.API_URL}${endpoint}`;
 	try {
-		const req = chai.request(url)[method](body);
-		const res = await req;
+		const res = await chai.request(url)[method]("/").send(body);
 		expect(res).to.have.status(200);
 		return res.body;
 	} catch (err) {

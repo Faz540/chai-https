@@ -1,8 +1,5 @@
 {
    "recursive": true,
    "reporter": "spec",
-   "timeout": 60000,
-   "require": [
-      "chai/register-expect"
-   ]
+   "timeout": 60000
 }

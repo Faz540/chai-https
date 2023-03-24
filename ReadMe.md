@@ -7,8 +7,8 @@ A lightweight and easy-to-use API testing framework using Mocha and Chai.
 To install the framework, clone the repository and install the dependencies:
 
 ```
-git clone https://github.com/your-username/api-testing-framework.git
-cd api-testing-framework
+git clone https://github.com/Faz540/chai-https.git
+cd chai-https
 npm install
 ```
 

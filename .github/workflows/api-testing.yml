@@ -5,7 +5,8 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      API_URL: https://pokeapi.co/api/v2
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
