@@ -1,0 +1,29 @@
+name: API Testing Workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint .
+
+      - name: Run tests and generate report
+        env:
+          TEST_REPORT_PATH: report.xml
+        run: |
+          npm test -- --reporter=xunit --reporter-options=output=$TEST_REPORT_PATH
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Report
+          path: ${{ env.TEST_REPORT_PATH }}

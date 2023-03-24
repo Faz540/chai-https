@@ -1,0 +1,28 @@
+{
+  "name": "api-chai-http",
+  "version": "1.0.0",
+  "description": "A lightweight and easy-to-use API testing framework using Mocha and Chai.",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "nyc mocha ./tests/*.spec.js",
+    "lint": "eslint ./ --fix",
+    "test": "mocha ./tests/*.spec.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-mocha": "^10.1.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/api-testing-framework.git"
+  },
+  "author": "Paul Joseph Farrell",
+  "license": "MIT"
+}

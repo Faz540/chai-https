@@ -1,0 +1,71 @@
+{
+   "plugins": [
+      "mocha",
+      "chai-expect"
+   ],
+   "env": {
+      "node": true,
+      "mocha": true
+   },
+   "extends": [
+      "eslint:recommended",
+      "plugin:mocha/recommended",
+      "plugin:chai-expect/recommended"
+   ],
+   "parserOptions": {
+      "ecmaVersion": 13
+   },
+   "rules": {
+      "indent": [
+         "error",
+         "tab"
+      ],
+      "linebreak-style": [
+         "error",
+         "unix"
+      ],
+      "quotes": [
+         "error",
+         "double"
+      ],
+      "semi": [
+         "error",
+         "always"
+      ],
+      "no-unused-vars": "error",
+      // Rules taken from Mocha ReadMe:
+      // https://github.com/lo1tuma/eslint-plugin-mocha/blob/master/README.md#rules
+      "mocha/no-empty-description": "error", // All 'describe' and 'its' must have a populated string
+      "mocha/no-exclusive-tests": "error", // Flags any tests with the .only flag
+      "mocha/no-global-tests": "error", // All 'it' blocks need to be inside a 'describe' block
+      "mocha/no-identical-title": "warn", // All 'it' blocks need to be unique to avoid potential duplication.
+      "mocha/no-mocha-arrows": "error", // It's industry standard to NOT use arrow functions for Mocha describe and its.
+      "mocha/no-nested-tests": "error", // Flags 'it' blocks that are nested inside other 'it' blocks
+      "mocha/no-setup-in-describe": "off", // All set up must be done in hooks. Using if statements alerts this.
+      "mocha/no-sibling-hooks": "warn", // Flag multiple hooks used in the same block
+      "mocha/no-skipped-tests": "off", // If not set to 'off', this will flag any tests that have the .skip flag
+      "mocha/no-top-level-hooks": "warn", // This will flag any Mocha hooks that are outside 'describe' blocks
+      "chai-expect/no-inner-compare": "warn",
+      "chai-expect/no-inner-literal": "warn",
+      "chai-expect/missing-assertion": "warn",
+      "chai-expect/terminating-properties": "warn"
+   },
+   "settings": {
+      "mocha/additionalCustomNames": [
+         {
+            "name": "describeModule",
+            "type": "suite",
+            "interfaces": [
+               "BDD" // use 'describe' for our Moha suite blocks
+            ]
+         },
+         {
+            "name": "testModule",
+            "type": "testCase",
+            "interfaces": [
+               "BDD" // use 'it' for our Mocha test blocks
+            ]
+         }
+      ]
+   }
+}
