@@ -21,10 +21,10 @@ jobs:
         env:
           TEST_REPORT_PATH: report.xml
         run: |
-          npm test -- --reporter=xunit --reporter-options=output=$TEST_REPORT_PATH
+          npm test -- --reporter=xunit --reporter-options=output=report.xml
 
       - name: Upload test report
         uses: actions/upload-artifact@v2
         with:
           name: Test Report
-          path: ${{ env.TEST_REPORT_PATH }}
+          path: report.xml
