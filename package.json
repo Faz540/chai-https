@@ -1,7 +1,7 @@
 {
   "name": "api-chai-http",
   "version": "1.0.0",
-  "description": "A lightweight and easy-to-use API testing framework using Mocha and Chai.",
+  "description": "A lightweight and easy-to-use API testing framework using Mocha and Chai HTTP",
   "main": "index.js",
   "scripts": {
     "coverage": "nyc mocha ./tests/*.spec.js",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/api-testing-framework.git"
+    "url": "https://github.com/Faz540/chai-https"
   },
   "author": "Paul Joseph Farrell",
   "license": "MIT"
