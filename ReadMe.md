@@ -12,6 +12,11 @@ cd chai-https
 npm install
 ```
 
+Be sure to make a copy of the `.env.example` file and rename it to `.env`
+```
+cp .env.example .env
+```
+
 ## Usage
 
 To run the tests, use the following command:
