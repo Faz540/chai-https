@@ -28,10 +28,3 @@ jobs:
         with:
           name: Test Report
           path: ./test-results.xml
-
-      - name: Publish test results
-        uses: phoenix-actions/test-reporting@v8
-        with:
-          name: Test Results
-          path: ./test-results.xml
-          reporter: junit
