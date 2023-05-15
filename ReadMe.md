@@ -1,3 +1,5 @@
+[![Daily API Tests](https://github.com/Faz540/chai-https/actions/workflows/daily-testing.yml/badge.svg)](https://github.com/Faz540/chai-https/actions/workflows/daily-testing.yml)
+
 # API Testing Framework
 
 A lightweight and easy-to-use API testing framework using Mocha and Chai.
