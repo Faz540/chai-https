@@ -21,7 +21,7 @@ jobs:
       - name: Upload test report as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Test Report
+          name: Test Report From Runner
           path: ./test-results.xml
   test-docker:
     runs-on: ubuntu-latest
@@ -36,3 +36,8 @@ jobs:
           compose-file: "./docker-compose.yml"
       - name: Build and run Docker Compose
         run: docker-compose up -d
+      - name: Upload test report as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test Report From Docker
+          path: ./test-results.xml
