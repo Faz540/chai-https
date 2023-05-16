@@ -31,13 +31,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up Docker Compose
+        id: compose
         uses: isbang/compose-action@v1.4.1
         with:
           compose-file: "./docker-compose.yml"
       - name: Build and run Docker Compose
-        run: docker-compose up -d
+        run: |
+          docker-compose up -d
+          docker cp ${{ steps.compose.outputs.id }}:./test-results.xml /tmp/artifact
       - name: Upload test report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: Test Report From Docker
-          path: ./test-results.xml
+          path: /tmp/test-results.xml
