@@ -17,30 +17,25 @@ jobs:
       - name: Run tests and generate report
         env:
           TEST_REPORT_PATH: report.xml
-        run: npm test -- --reporter=mocha-junit-reporter --reporter-options mochaFile=./test-results.xml
+        run: npm test -- --reporter=mocha-junit-reporter
       - name: Upload test report as artifact
         uses: actions/upload-artifact@v2
         with:
           name: Test Report From Runner
           path: ./test-results.xml
-  test-docker:
-    runs-on: ubuntu-latest
-    env:
-      API_URL: 'https://pokeapi.co/api/v2'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Docker Compose
-        id: compose
-        uses: isbang/compose-action@v1.4.1
-        with:
-          compose-file: "./docker-compose.yml"
-      - name: Build and run Docker Compose
-        run: |
-          docker-compose up -d
-          docker cp ${{ steps.compose.outputs.id }}:./test-results.xml /tmp/artifact
-      - name: Upload test report as artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Test Report From Docker
-          path: /tmp/artifact
+      - name: Output
+        run: echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  # test-docker:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     API_URL: 'https://pokeapi.co/api/v2'
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #     - name: Docker Compose
+  #       uses: isbang/compose-action@v1.4.1
+  #     - name: Upload test report as artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Test Report From Docker
+  #         path: ./test-results.xml
