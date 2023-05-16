@@ -25,17 +25,36 @@ jobs:
           path: ./test-results.xml
       - name: Output
         run: echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-  # test-docker:
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     API_URL: 'https://pokeapi.co/api/v2'
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #     - name: Docker Compose
-  #       uses: isbang/compose-action@v1.4.1
-  #     - name: Upload test report as artifact
-  #       uses: actions/upload-artifact@v2
-  #       with:
-  #         name: Test Report From Docker
-  #         path: ./test-results.xml
+      - name: Notify on Slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          channel-id: "C041LJ0FZB9" #quality-alerts-wdio
+          payload: |
+            {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "plain_text",
+                  "text": "Testing 123",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Results",
+                      "emoji": true
+                    },
+                    "url": "https://www.google.com"
+                  }
+                ]
+              }
+            ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.WDIO_SLACKBOT_TOKEN }}
