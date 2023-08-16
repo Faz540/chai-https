@@ -1,6 +1,21 @@
+[![API Testing Workflow](https://github.com/Faz540/chai-https/actions/workflows/api-testing.yml/badge.svg?branch=main)](https://github.com/Faz540/chai-https/actions/workflows/api-testing.yml)
+
 # API Testing Framework
 
 A lightweight and easy-to-use API testing framework using Mocha and Chai.
+
+This repo is to demonstrate my ability to create an Automated API Testing Framework.
+
+## Framework Checklist:
+```
+[/] Create README
+[/] Install all project depdencies via Terminal
+[/] Execute all tests through Terminal
+[/] Abstract the actual API requests out of the spec files
+[/] Containerize and execute tests using Docker
+[/] Create GitHub Action Workflow to execute tests in the cloud when needed
+[/] Improve GitHub Action Workflow to execute tests with every PR/Push.
+```
 
 ## Installation
 
@@ -25,7 +40,7 @@ To run the tests, use the following command:
 npm test
 ```
 
-This will run all of the tests in the `tests/` directory and display the results in the terminal.
+This will run all of the tests in the `./tests/` directory and display the results in the terminal.
 
 To run the linter, use the following command:
 
@@ -36,18 +51,8 @@ npm run lint
 This will check the code for style and syntax errors using ESLint.
 
 ## Docker
+You can also execute the tests inside a Docker container, the only dependency for this is to have Docker installed.
 
 ```
-// Or Docker Compose
 docker-compose up --abort-on-container-exit
-
 ```
-
-## Contributing
-
-Contributions are welcome! To contribute, fork the repository and create a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-This README.md file includes instructions for installing and using the framework, as well as information on how to contribute and the license that the framework is released under. You can customize the contents of the file to suit your needs.
